@@ -1,0 +1,48 @@
+{
+  "name": "storybored",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Installable Storybored PWA and Electron desktop app",
+  "main": "main.js",
+  "scripts": {
+    "desktop:dev": "electron .",
+    "desktop:dist": "electron-builder -mwl",
+    "serve": "python3 -m http.server 4173"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.storybored.app",
+    "productName": "Storybored",
+    "files": [
+      "index.html",
+      "manifest.webmanifest",
+      "sw.js",
+      "main.js",
+      "icons/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.graphics-design",
+      "icon": "icons/icon-512.png",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "icons/icon-512.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "icons",
+      "target": [
+        "AppImage"
+      ],
+      "category": "Graphics"
+    }
+  }
+}
