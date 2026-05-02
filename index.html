@@ -154,6 +154,7 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
 .panel-img-item:hover{border-color:var(--accent3)}.panel-img-item.selected{border-color:var(--accent)}
 .panel-img-item img{width:100%;height:100%;display:block;object-fit:fill;pointer-events:none}
 .resize-handle{position:absolute;bottom:-4px;right:-4px;width:10px;height:10px;background:var(--accent);cursor:se-resize;pointer-events:all}
+.resize-handle::before{content:'';position:absolute;inset:-8px;cursor:se-resize}
 .panel-notes{padding:10px 14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:4px;background:var(--surface2)}
 .notes-label{font-family:'Satoshi','DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase}
 .notes-textarea{background:none;border:none;color:var(--text2);font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.5;resize:none;outline:none;min-height:36px;width:100%}
@@ -200,8 +201,8 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
 .graphic-page-frame:hover .page-controls,.graphic-page-frame.focused-frame .page-controls{opacity:1}
 .float-btn{background:var(--surface);border:1px solid var(--border2);color:var(--text2);font-family:'Satoshi','DM Sans',sans-serif;font-size:9px;font-weight:700;padding:3px 7px;cursor:pointer;white-space:nowrap;line-height:1.4;transition:color .12s,border-color .12s;display:flex;align-items:center;gap:4px}
 .float-btn:hover{color:var(--text);border-color:var(--border)}.float-btn.danger:hover{color:var(--red);border-color:var(--red)}
-.page-resize-corner{position:absolute;bottom:0;right:0;width:18px;height:18px;cursor:se-resize;z-index:4}
-.page-resize-corner::after{content:'';position:absolute;bottom:4px;right:4px;width:7px;height:7px;border-right:2px solid var(--border2);border-bottom:2px solid var(--border2)}
+.page-resize-corner{position:absolute;bottom:0;right:0;width:34px;height:34px;cursor:se-resize;z-index:4}
+.page-resize-corner::after{content:'';position:absolute;bottom:5px;right:5px;width:9px;height:9px;border-right:2px solid var(--border2);border-bottom:2px solid var(--border2)}
 .graphic-page-frame:hover .page-resize-corner::after,.graphic-page-frame.focused-frame .page-resize-corner::after{border-color:var(--accent3)}
 .graphic-panel{position:absolute;background:var(--panel-bg);border:1px solid var(--border);min-width:40px;min-height:30px;overflow:visible}
 .graphic-panel.focused{border-color:var(--accent3);box-shadow:0 0 0 1px var(--accent3)}
@@ -220,8 +221,8 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
 .gp-edge.right{right:0;top:18px;bottom:14px;width:9px}
 .gp-controls{position:absolute;top:4px;right:4px;display:flex;gap:3px;z-index:6;opacity:0;transition:opacity .15s}
 .graphic-panel:hover .gp-controls,.graphic-panel.focused .gp-controls{opacity:1}
-.gp-resize{position:absolute;bottom:0;right:0;width:14px;height:14px;cursor:se-resize;z-index:5}
-.gp-resize::after{content:'';position:absolute;bottom:3px;right:3px;width:6px;height:6px;border-right:2px solid var(--border2);border-bottom:2px solid var(--border2)}
+.gp-resize{position:absolute;bottom:0;right:0;width:28px;height:28px;cursor:se-resize;z-index:5}
+.gp-resize::after{content:'';position:absolute;bottom:4px;right:4px;width:8px;height:8px;border-right:2px solid var(--border2);border-bottom:2px solid var(--border2)}
 .graphic-panel:hover .gp-resize::after,.graphic-panel.focused .gp-resize::after{border-color:var(--accent3)}
 
 /* FIX #2: speech/thought/narration bubbles */
@@ -229,8 +230,8 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
 .gp-bubble{position:absolute;pointer-events:all;user-select:none;min-width:60px;min-height:36px}
 .gp-bubble.selected .bubble-box{outline:2px solid var(--accent3);outline-offset:1px}
 /* FIX #4: width:100% makes bubble-box fill .gp-bubble so resize handle works */
-.bubble-box{position:relative;background:#fff;border:2px solid #333;border-radius:16px;padding:6px 10px;font-family:'DM Sans',sans-serif;font-size:11px;color:#1a1a18;line-height:1.35;word-break:break-word;width:100%;height:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow:visible}
-.bubble-box.thought{border-style:dashed;border-radius:50%;padding:12px 16px;min-width:80px;min-height:48px;display:flex;align-items:center;justify-content:center}
+.bubble-box{position:relative;background:#fff;border:2px solid #333;border-radius:16px;padding:2px 6px;font-family:'DM Sans',sans-serif;font-size:11px;color:#1a1a18;line-height:1.15;word-break:break-word;width:100%;height:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden}
+.bubble-box.thought{border-style:dashed;border-radius:50%;padding:5px 8px;min-width:80px;min-height:48px;display:flex;align-items:center;justify-content:center}
 .bubble-box.thought .bubble-textarea{text-align:center}
 .bubble-box.caption{border-radius:3px;background:rgba(0,0,0,.82);border-color:rgba(255,255,255,.5);color:#fff}
 .bubble-tail{position:absolute;pointer-events:none;bottom:-13px;left:12px}
@@ -238,10 +239,10 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
 .bubble-tail.right{left:auto;right:12px}
 .bubble-del{position:absolute;top:-7px;right:-7px;width:15px;height:15px;background:var(--red);color:#fff;border:none;border-radius:50%;font-size:9px;font-weight:700;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:10;padding:0;pointer-events:all}
 .gp-bubble:hover .bubble-del,.gp-bubble.selected .bubble-del{display:flex}
-.bubble-textarea{background:none;border:none;outline:none;width:100%;flex:1;box-sizing:border-box;font-family:'DM Sans',sans-serif;font-size:11px;color:inherit;resize:none;line-height:1.35;padding:0;display:block;min-height:0;overflow:hidden}
+.bubble-textarea{background:none;border:none;outline:none;width:100%;flex:1;box-sizing:border-box;font-family:'DM Sans',sans-serif;font-size:11px;color:inherit;resize:none;line-height:1.15;padding:0;display:block;min-height:0;overflow:hidden}
 /* resize corner — pointer-events:all so it's always clickable even through the layer */
-.bubble-resize{position:absolute;bottom:-6px;right:-6px;width:14px;height:14px;cursor:se-resize;z-index:10;display:none;pointer-events:all}
-.bubble-resize::after{content:'';position:absolute;inset:3px;border-right:2px solid #666;border-bottom:2px solid #666}
+.bubble-resize{position:absolute;bottom:-6px;right:-6px;width:22px;height:22px;cursor:se-resize;z-index:10;display:none;pointer-events:all}
+.bubble-resize::after{content:'';position:absolute;inset:7px;border-right:2px solid #666;border-bottom:2px solid #666}
 .gp-bubble:hover .bubble-resize,.gp-bubble.selected .bubble-resize{display:block}
 .bubble-tail-controls{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);display:flex;gap:6px;justify-content:center;z-index:11}
 .bubble-tail-btn{width:8px;height:8px;border-radius:50%;border:1px solid rgba(0,0,0,.45);background:transparent;cursor:pointer;padding:0;opacity:.82}
@@ -333,7 +334,7 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
     </div>
   </div>
   <div class="draw-toolbar">
-    <button class="tool-btn active" id="toolPen" onclick="setTool('pen')">Pen</button>
+    <button class="tool-btn active" id="toolPen" onclick="togglePenDropdown(this)" title="Drawing tool"><span id="penLabel">Pen</span> <span style="opacity:.55;font-size:9px;margin-left:2px">▾</span></button>
     <button class="tool-btn" id="toolEraser" onclick="setTool('eraser')">Eraser</button>
     <div class="tool-sep"></div>
     <span class="toolbar-label">Size</span>
@@ -418,8 +419,20 @@ html.modal-open,body.modal-open{background:rgba(0,0,0,.78)}
 let projects = JSON.parse(localStorage.getItem('sb_projects') || '[]');
 let currentProject = null;
 let currentTool = 'pen';
+let currentPenVariant = 'pen';
 let currentColor = (localStorage.getItem('sb_theme')||'light')==='light' ? '#0e0e0f' : '#f0f0ee';
 let currentSize = 3;
+const PEN_VARIANTS = {
+  pen:        {label:'Pen',         sizeMul:1,   alpha:1,   lineCap:'round',  composite:'source-over'},
+  // brush: width scales with stroke speed (slow=thin, fast=thick); alpha:1 so segments don't stack
+  brush:      {label:'Brush',       sizeMul:1.4, alpha:1,   lineCap:'round',  composite:'source-over', velocityWidth:{min:0.7, max:2.6}},
+  // highlighter: snapshot+single-path redraw so semi-transparent strokes don't darken at joins
+  highlighter:{label:'Highlighter', sizeMul:3,   alpha:.3,  lineCap:'square', composite:'source-over', useSnapshot:true},
+  marker:     {label:'Marker',      sizeMul:1.6, alpha:1,   lineCap:'square', composite:'source-over'},
+  // pencil: same snapshot trick — keeps the soft look without buildup
+  pencil:     {label:'Pencil',      sizeMul:.7,  alpha:.85, lineCap:'round',  composite:'source-over', useSnapshot:true}
+};
+function getPenStyle(){ return PEN_VARIANTS[currentPenVariant] || PEN_VARIANTS.pen; }
 let selectedMode = 'cinematic';
 let activePanelId = null;
 let renamingProjectId = null;
@@ -910,11 +923,69 @@ function initFrameCanvas(fid){
 }
 function pushFrameUndo(fid){ const c=document.getElementById('pageCanvas_'+fid); if(!c)return; if(!undoStacks[fid])undoStacks[fid]=[]; undoStacks[fid].push(c.toDataURL()); if(undoStacks[fid].length>40)undoStacks[fid].shift(); }
 function setupFrameDrawing(canvas,fid){
-  let drawing=false,lx=0,ly=0;
+  let drawing=false,lx=0,ly=0,strokeBuf=null,strokePts=[],strokeLastT=0,strokeSpeed=0;
   function getPos(e,t){const r=canvas.getBoundingClientRect();const s=t||e;return{x:(s.clientX-r.left)*(canvas.width/r.width),y:(s.clientY-r.top)*(canvas.height/r.height)};}
-  function startDraw(x,y){if(activeFrameId!==fid)return;drawing=true;canvas.dataset.dirty='1';lx=x;ly=y;const ctx=canvas.getContext('2d');ctx.beginPath();ctx.arc(x,y,(currentTool==='eraser'?currentSize*3:currentSize)/2,0,Math.PI*2);ctx.fillStyle=currentTool==='eraser'?'rgba(0,0,0,0)':currentColor;ctx.globalCompositeOperation=currentTool==='eraser'?'destination-out':'source-over';ctx.fill();}
-  function doDraw(x,y){if(!drawing||activeFrameId!==fid)return;canvas.dataset.dirty='1';const ctx=canvas.getContext('2d');ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(x,y);ctx.strokeStyle=currentColor;ctx.lineWidth=currentTool==='eraser'?currentSize*3:currentSize;ctx.lineCap='round';ctx.lineJoin='round';ctx.globalCompositeOperation=currentTool==='eraser'?'destination-out':'source-over';ctx.stroke();lx=x;ly=y;}
-  function endDraw(){if(!drawing)return;drawing=false;canvas.getContext('2d').globalCompositeOperation='source-over';pushFrameUndo(fid);saveFrameCanvas(fid,true);}
+  function startDraw(x,y){
+    if(activeFrameId!==fid)return;
+    drawing=true; canvas.dataset.dirty='1'; lx=x; ly=y;
+    const ctx=canvas.getContext('2d');
+    const e=currentTool==='eraser', ps=getPenStyle();
+    strokePts=[{x,y}]; strokeSpeed=0; strokeLastT=performance.now(); strokeBuf=null;
+    if(!e && ps.useSnapshot){
+      strokeBuf=document.createElement('canvas');
+      strokeBuf.width=canvas.width; strokeBuf.height=canvas.height;
+      strokeBuf.getContext('2d').drawImage(canvas,0,0);
+    }
+    const r=(e?currentSize*3:currentSize*ps.sizeMul)/2;
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle=e?'rgba(0,0,0,0)':currentColor;
+    ctx.globalAlpha=e?1:ps.alpha;
+    ctx.globalCompositeOperation=e?'destination-out':ps.composite;
+    ctx.fill();
+  }
+  function doDraw(x,y){
+    if(!drawing||activeFrameId!==fid)return;
+    canvas.dataset.dirty='1';
+    const ctx=canvas.getContext('2d');
+    const e=currentTool==='eraser', ps=getPenStyle();
+    if(!e && ps.useSnapshot && strokeBuf){
+      strokePts.push({x,y});
+      ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over';
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(strokeBuf,0,0);
+      ctx.strokeStyle=currentColor;
+      ctx.lineWidth=currentSize*ps.sizeMul;
+      ctx.lineCap=ps.lineCap; ctx.lineJoin='round';
+      ctx.globalAlpha=ps.alpha; ctx.globalCompositeOperation=ps.composite;
+      ctx.beginPath(); ctx.moveTo(strokePts[0].x,strokePts[0].y);
+      for(let i=1;i<strokePts.length;i++) ctx.lineTo(strokePts[i].x,strokePts[i].y);
+      ctx.stroke();
+    } else if(!e && ps.velocityWidth){
+      const now=performance.now();
+      const dt=Math.max(now-strokeLastT,1);
+      const dx=x-lx, dy=y-ly, dist=Math.sqrt(dx*dx+dy*dy);
+      strokeSpeed=strokeSpeed*0.55 + (dist/dt)*0.45;
+      const norm=Math.min(strokeSpeed/1.6,1);
+      const mul=ps.velocityWidth.min+(ps.velocityWidth.max-ps.velocityWidth.min)*norm;
+      ctx.beginPath(); ctx.moveTo(lx,ly); ctx.lineTo(x,y);
+      ctx.strokeStyle=currentColor;
+      ctx.lineWidth=currentSize*mul;
+      ctx.lineCap=ps.lineCap; ctx.lineJoin='round';
+      ctx.globalAlpha=ps.alpha; ctx.globalCompositeOperation=ps.composite;
+      ctx.stroke();
+      strokeLastT=now;
+    } else {
+      ctx.beginPath(); ctx.moveTo(lx,ly); ctx.lineTo(x,y);
+      ctx.strokeStyle=currentColor;
+      ctx.lineWidth=e?currentSize*3:currentSize*ps.sizeMul;
+      ctx.lineCap=e?'round':ps.lineCap; ctx.lineJoin='round';
+      ctx.globalAlpha=e?1:ps.alpha;
+      ctx.globalCompositeOperation=e?'destination-out':ps.composite;
+      ctx.stroke();
+    }
+    lx=x; ly=y;
+  }
+  function endDraw(){if(!drawing)return;drawing=false;const ctx=canvas.getContext('2d');ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;strokeBuf=null;strokePts=[];pushFrameUndo(fid);saveFrameCanvas(fid,true);}
   canvas.addEventListener('mousedown',e=>{e.stopPropagation();focusFrame(fid);if(bubbleTool){const r=canvas.getBoundingClientRect();addBubble(fid,bubbleTool,e.clientX-r.left,e.clientY-r.top,false);return;}const p=getPos(e);startDraw(p.x,p.y);});
   canvas.addEventListener('mousemove',e=>{const p=getPos(e);doDraw(p.x,p.y);});
   canvas.addEventListener('mouseup',endDraw); canvas.addEventListener('mouseleave',endDraw);
@@ -1523,12 +1594,70 @@ function initCanvas(panelId,mode){
 }
 
 function setupDrawing(canvas,panelId){
-  let drawing=false,lx=0,ly=0;
+  let drawing=false,lx=0,ly=0,strokeBuf=null,strokePts=[],strokeLastT=0,strokeSpeed=0;
   const bg=()=>getCanvasBg();
   function getPos(e,t){const r=canvas.getBoundingClientRect();const s=t||e;return{x:(s.clientX-r.left)*(canvas.width/r.width),y:(s.clientY-r.top)*(canvas.height/r.height)};}
-  function startDraw(x,y){if(activePanelId!==panelId)return;drawing=true;canvas.dataset.dirty='1';lx=x;ly=y;const ctx=canvas.getContext('2d');ctx.beginPath();ctx.arc(x,y,(currentTool==='eraser'?currentSize*3:currentSize)/2,0,Math.PI*2);ctx.fillStyle=currentTool==='eraser'?bg():currentColor;ctx.fill();}
-  function doDraw(x,y){if(!drawing||activePanelId!==panelId)return;canvas.dataset.dirty='1';const ctx=canvas.getContext('2d');ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(x,y);ctx.strokeStyle=currentTool==='eraser'?bg():currentColor;ctx.lineWidth=currentTool==='eraser'?currentSize*3:currentSize;ctx.lineCap='round';ctx.lineJoin='round';ctx.stroke();lx=x;ly=y;}
-  function endDraw(){if(!drawing)return;drawing=false;pushUndo(panelId);saveCanvas(panelId,true);}
+  function startDraw(x,y){
+    if(activePanelId!==panelId)return;
+    drawing=true; canvas.dataset.dirty='1'; lx=x; ly=y;
+    const ctx=canvas.getContext('2d');
+    const e=currentTool==='eraser', ps=getPenStyle();
+    strokePts=[{x,y}]; strokeSpeed=0; strokeLastT=performance.now(); strokeBuf=null;
+    if(!e && ps.useSnapshot){
+      strokeBuf=document.createElement('canvas');
+      strokeBuf.width=canvas.width; strokeBuf.height=canvas.height;
+      strokeBuf.getContext('2d').drawImage(canvas,0,0);
+    }
+    const r=(e?currentSize*3:currentSize*ps.sizeMul)/2;
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle=e?bg():currentColor;
+    ctx.globalAlpha=e?1:ps.alpha;
+    ctx.globalCompositeOperation=e?'source-over':ps.composite;
+    ctx.fill();
+  }
+  function doDraw(x,y){
+    if(!drawing||activePanelId!==panelId)return;
+    canvas.dataset.dirty='1';
+    const ctx=canvas.getContext('2d');
+    const e=currentTool==='eraser', ps=getPenStyle();
+    if(!e && ps.useSnapshot && strokeBuf){
+      strokePts.push({x,y});
+      ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over';
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(strokeBuf,0,0);
+      ctx.strokeStyle=currentColor;
+      ctx.lineWidth=currentSize*ps.sizeMul;
+      ctx.lineCap=ps.lineCap; ctx.lineJoin='round';
+      ctx.globalAlpha=ps.alpha; ctx.globalCompositeOperation=ps.composite;
+      ctx.beginPath(); ctx.moveTo(strokePts[0].x,strokePts[0].y);
+      for(let i=1;i<strokePts.length;i++) ctx.lineTo(strokePts[i].x,strokePts[i].y);
+      ctx.stroke();
+    } else if(!e && ps.velocityWidth){
+      const now=performance.now();
+      const dt=Math.max(now-strokeLastT,1);
+      const dx=x-lx, dy=y-ly, dist=Math.sqrt(dx*dx+dy*dy);
+      strokeSpeed=strokeSpeed*0.55 + (dist/dt)*0.45;
+      const norm=Math.min(strokeSpeed/1.6,1);
+      const mul=ps.velocityWidth.min+(ps.velocityWidth.max-ps.velocityWidth.min)*norm;
+      ctx.beginPath(); ctx.moveTo(lx,ly); ctx.lineTo(x,y);
+      ctx.strokeStyle=currentColor;
+      ctx.lineWidth=currentSize*mul;
+      ctx.lineCap=ps.lineCap; ctx.lineJoin='round';
+      ctx.globalAlpha=ps.alpha; ctx.globalCompositeOperation=ps.composite;
+      ctx.stroke();
+      strokeLastT=now;
+    } else {
+      ctx.beginPath(); ctx.moveTo(lx,ly); ctx.lineTo(x,y);
+      ctx.strokeStyle=e?bg():currentColor;
+      ctx.lineWidth=e?currentSize*3:currentSize*ps.sizeMul;
+      ctx.lineCap=e?'round':ps.lineCap; ctx.lineJoin='round';
+      ctx.globalAlpha=e?1:ps.alpha;
+      ctx.globalCompositeOperation=e?'source-over':ps.composite;
+      ctx.stroke();
+    }
+    lx=x; ly=y;
+  }
+  function endDraw(){if(!drawing)return;drawing=false;const ctx=canvas.getContext('2d');ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';strokeBuf=null;strokePts=[];pushUndo(panelId);saveCanvas(panelId,true);}
   canvas.addEventListener('mousedown',e=>{
     // Don't intercept bubble control clicks
     if(e.target.classList.contains('bubble-resize')||e.target.classList.contains('bubble-del')) return;
@@ -1696,6 +1825,41 @@ function setTool(t){
   if(bubbleTool){ bubbleTool=null; updateBubbleToolUI(); }
   document.getElementById('toolPen').classList.toggle('active',t==='pen');
   document.getElementById('toolEraser').classList.toggle('active',t==='eraser');
+}
+
+// PEN VARIANT DROPDOWN — mirrors the bubble dropdown pattern
+let _penMenuEl = null;
+function togglePenDropdown(btn){
+  // If pen isn't currently active, just activate it (and skip menu) so users can quick-tap to switch from eraser
+  if(currentTool !== 'pen' && !_penMenuEl){
+    setTool('pen');
+    return;
+  }
+  if(_penMenuEl){ _closePenMenu(); return; }
+  const rect=btn.getBoundingClientRect();
+  const menu=document.createElement('div');
+  menu.style.cssText=`position:fixed;top:${rect.bottom+4}px;left:${rect.left}px;background:var(--surface);border:1px solid var(--border2);z-index:9999;min-width:140px;box-shadow:0 4px 20px rgba(0,0,0,.5)`;
+  Object.entries(PEN_VARIANTS).forEach(([id,def])=>{
+    const b=document.createElement('button');
+    b.className='bubble-menu-item'+(currentPenVariant===id?' active':'');
+    b.textContent=def.label;
+    b.addEventListener('click',()=>{ selectPenVariant(id); _closePenMenu(); });
+    menu.appendChild(b);
+  });
+  document.body.appendChild(menu); _penMenuEl=menu;
+  setTimeout(()=>document.addEventListener('mousedown',_penOutsideClick),10);
+}
+function _closePenMenu(){ _penMenuEl?.remove(); _penMenuEl=null; document.removeEventListener('mousedown',_penOutsideClick); }
+function _penOutsideClick(e){
+  const btn=document.getElementById('toolPen');
+  if(_penMenuEl && !_penMenuEl.contains(e.target) && btn && !btn.contains(e.target)) _closePenMenu();
+}
+function selectPenVariant(id){
+  if(!PEN_VARIANTS[id]) return;
+  currentPenVariant=id;
+  const lbl=document.getElementById('penLabel');
+  if(lbl) lbl.textContent=PEN_VARIANTS[id].label;
+  setTool('pen');
 }
 
 function selectBubbleTool(type){
@@ -1970,17 +2134,20 @@ function renderBubble(panelId, b, focusText=false){
   }
   wrap.style.width=(b.w||80)+'px';
   wrap.style.height=(b.h||56)+'px';
-  const fontSize=Math.max(8,Math.min(14,Math.round(Math.min(b.w||80,b.h||56)*0.2)));
-  const mobileTextFloor=window.matchMedia('(max-width: 720px)').matches ? 16 : 0;
 
   const box=document.createElement('div');
   box.className='bubble-box'+(b.type==='thought'?' thought':b.type==='caption'?' caption':'');
 
   const ta=document.createElement('textarea'); ta.className='bubble-textarea'; ta.value=b.text; ta.rows=1;
-  ta.style.fontSize=Math.max(fontSize,mobileTextFloor)+'px';
-  ta.style.lineHeight=Math.max(10,Math.max(fontSize,mobileTextFloor)+2)+'px';
   ta.placeholder=b.type==='caption'?'Caption…':b.type==='thought'?'Thought…':'Dialogue…';
-  ta.addEventListener('input',()=>{ b.text=ta.value; ta.style.height='auto'; ta.style.height=ta.scrollHeight+'px'; save(); });
+  ta.addEventListener('input',()=>{ b.text=ta.value; autoFitBubbleText(ta); save(); });
+  // Refit whenever the textarea's box changes (bubble resize, layout, panel resize)
+  if(typeof ResizeObserver!=='undefined'){
+    const _ro=new ResizeObserver(()=>autoFitBubbleText(ta));
+    _ro.observe(ta);
+  } else {
+    requestAnimationFrame(()=>autoFitBubbleText(ta));
+  }
   ta.addEventListener('mousedown',e=>e.stopPropagation());
   ta.addEventListener('touchstart',e=>e.stopPropagation(),{passive:true});
   box.appendChild(ta);
@@ -2069,7 +2236,24 @@ function renderBubble(panelId, b, focusText=false){
   setTimeout(()=>{ ta.style.height='100%'; if(focusText) ta.focus(); },20);
 }
 
-function autoResizeBubbleTextarea(ta){ ta.style.height='auto'; ta.style.height=ta.scrollHeight+'px'; }
+// Shrink font-size until text fits inside the textarea's fixed flex box; grow back up to maxSize when there's room.
+function autoFitBubbleText(ta){
+  if(!ta || ta.clientHeight===0 || ta.clientWidth===0) return;
+  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+  const minSize = isMobile ? 10 : 7;
+  const maxSize = 22;
+  ta.style.lineHeight = '1.15';
+  // Start from the largest size, then shrink until content fits height & width.
+  let size = maxSize;
+  ta.style.fontSize = size + 'px';
+  let guard = 80;
+  while(guard-- > 0 && size > minSize && (ta.scrollHeight > ta.clientHeight + 1 || ta.scrollWidth > ta.clientWidth + 1)){
+    size -= 1;
+    ta.style.fontSize = size + 'px';
+  }
+}
+// kept for any external callers — now an alias
+function autoResizeBubbleTextarea(ta){ autoFitBubbleText(ta); }
 function findBubbleByEl(el){
   const bwrap=el.closest('.gp-bubble'); if(!bwrap) return null;
   const bid=bwrap.id.replace('bubble_','');
